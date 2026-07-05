@@ -1,0 +1,134 @@
+aid: diligent-boards
+url: https://raw.githubusercontent.com/api-evangelist/diligent-boards/refs/heads/main/apis.yml
+name: Diligent
+kind: company
+description: Diligent Corporation is a governance, risk, and compliance (GRC)
+  software company best known for its board management portal (Diligent Boards /
+  Boardbooks) and the broader Diligent One Platform, which unifies board
+  management, enterprise risk, audit, compliance, entity management, and ESG. The
+  board portal itself is a security-hardened product with no public developer API -
+  it is integrated through SSO (SAML 2.0), SCIM provisioning, and packaged
+  connectors (Okta, Microsoft 365/Teams, Zoom, DocuSign). Diligent does, however,
+  publish a real developer portal at developer.diligent.com covering the GRC side
+  of the platform - the HighBond (Diligent One) REST API for audit/risk/compliance
+  data, a GraphQL Entities API for legal-entity and subsidiary management, an ESG
+  API for activity/usage data, and a Workflow API for jobs, tasks, and campaigns.
+  API access is customer/partner-gated (a HighBond API key or SSO-scoped token is
+  required) and pricing is quote-based via Diligent sales.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Governance
+- Risk
+- Compliance
+- GRC
+- Board Management
+- Audit
+- Entity Management
+- ESG
+- Enterprise
+created: '2026-07-05'
+modified: '2026-07-05'
+specificationVersion: '0.19'
+apis:
+- aid: diligent-boards:diligent-highbond-api
+  name: Diligent HighBond API (Diligent One)
+  tags:
+  - GRC
+  - Audit
+  - Risk
+  - Compliance
+  - HighBond
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.diligent.com/api/highbond
+  baseURL: https://apis-us.highbond.com/v1
+  properties:
+  - url: https://developer.diligent.com/api/highbond
+    type: Documentation
+  - url: https://docs-apis.highbond.com/
+    type: APIReference
+  - url: https://developer.diligent.com/docs/api_terms_of_use
+    type: TermsOfService
+  description: REST API for the Diligent One Platform (formerly HighBond) covering
+    the governance, risk, and compliance surface - organizations, projects,
+    control tests, risks, controls, issues, frameworks, results collections, and
+    records. JSON over HTTPS, authenticated with a HighBond API key (Bearer token).
+    Region-scoped base URLs (apis-us / apis-ca / apis-eu / apis-ap / apis-au /
+    apis-af / apis-sa / apis-jp .highbond.com, and diligentoneplatform.com).
+    Endpoints modeled from public help/reference documentation rather than a
+    published OpenAPI definition.
+- aid: diligent-boards:diligent-entities-api
+  name: Diligent Entities API
+  tags:
+  - Entity Management
+  - GraphQL
+  - Legal Entities
+  - Subsidiary Governance
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.diligent.com/api/entities
+  baseURL: https://developer.diligent.com/api/entities
+  properties:
+  - url: https://developer.diligent.com/api/entities
+    type: Documentation
+  - url: https://developer.diligent.com/docs/entities_graphql_api_guidelines
+    type: APIReference
+  - url: https://developer.diligent.com/docs/entities
+    type: SchemaTypes
+  description: GraphQL API for Diligent Entities - managing company/legal-entity
+    records, their structure, obligations, and legal characteristics, plus an
+    Entities Reports API. Root-level mutations create, update, and delete
+    entities. The full schema is downloadable as schema.graphql and Diligent
+    recommends generating a typed client (e.g. Strawberry Shake for .NET). Access
+    requires a Reports API access token.
+- aid: diligent-boards:diligent-esg-api
+  name: Diligent ESG API
+  tags:
+  - ESG
+  - Sustainability
+  - Activity Data
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.diligent.com/api/esg
+  baseURL: https://developer.diligent.com/api/esg
+  properties:
+  - url: https://developer.diligent.com/api/esg
+    type: Documentation
+  - url: https://help.diligentoneplatform.com/helpdocs/d1p/en-us/Content/esg/managing_integs_api.htm
+    type: APIReference
+  description: Developer interface for the Diligent ESG platform, used to send
+    activity-entry (usage) data into Diligent ESG from internal systems for
+    sustainability and emissions reporting. REST over HTTPS with JSON, gated by a
+    HighBond/Diligent One API key.
+- aid: diligent-boards:diligent-workflow-api
+  name: Diligent Workflow API
+  tags:
+  - Workflow
+  - Jobs
+  - Tasks
+  - Campaigns
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.diligent.com/api/workflow
+  baseURL: https://developer.diligent.com/api/workflow
+  properties:
+  - url: https://developer.diligent.com/api/workflow
+    type: Documentation
+  - url: https://help.diligentoneplatform.com/helpdocs/diligent-workflow/Content/diligent_workflow/administration_tasks/diligent_workflow_api.htm
+    type: APIReference
+  description: REST API built around standard HTTPS requests with JSON responses
+    for the Diligent Workflow product. Reports across Business Areas, Job Owners,
+    Jobs, Tasks, Campaigns, and expiries, plus creating and updating jobs with
+    files and folders.
+common:
+- type: LinkedIn
+  url: https://www.linkedin.com/company/diligent
+- type: Website
+  url: https://www.diligent.com/
+- type: Documentation
+  url: https://developer.diligent.com/
+- type: Partners
+  url: https://www.diligent.com/company/partners
+- type: TermsOfService
+  url: https://developer.diligent.com/docs/api_terms_of_use
+- type: BoardManagement
+  url: https://www.diligent.com/lp/more-than-a-board-portal
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

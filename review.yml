@@ -1,0 +1,117 @@
+aid: diligent-boards
+name: Diligent
+review:
+  question: Does Diligent expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-05'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. None of Diligent's documented developer
+    APIs use a server-push transport. The HighBond (Diligent One), ESG, and
+    Workflow APIs are request/response REST over HTTPS with JSON; the Entities
+    API is GraphQL over HTTPS (query/mutation, no documented subscriptions).
+    There is no WebSocket (ws:// or wss://) or SSE surface documented on any
+    Diligent developer API to model, so no AsyncAPI was created.
+findings:
+  summary: |
+    Diligent does not publish a documented public WebSocket API. Diligent
+    Corporation is a governance, risk, and compliance (GRC) vendor whose
+    flagship is a board management portal (Diligent Boards / Boardbooks) inside
+    the broader Diligent One Platform. The board portal itself has NO public
+    developer API - it is security-hardened and integrated only through SSO
+    (SAML 2.0), SCIM provisioning, and packaged connectors (Okta, Microsoft
+    365/Teams, Zoom, DocuSign). Diligent does run a real developer portal at
+    developer.diligent.com for the GRC side of the platform: the HighBond
+    (Diligent One) REST API, a GraphQL Entities API, an ESG API, and a Workflow
+    API. All are request/response (REST/GraphQL) over HTTPS. No realtime,
+    bidirectional, or streaming WebSocket endpoint is documented anywhere.
+  accessModel: |
+    API access is customer/partner-gated, not open self-serve. HighBond/Diligent
+    One APIs require a HighBond API key (created from the profile menu, with an
+    expiry in days and read/write/admin scopes) presented as a Bearer token.
+    The Entities Reports API requires a generated Reports API access token.
+    Pricing is quote-based (contact Diligent sales); there is no public pricing
+    or public rate-limit table. The board portal (Boards/Boardbooks) is not
+    programmable beyond identity/provisioning (SSO + SCIM) and vendor
+    connectors.
+  endpointsModeled: true
+  endpointsModeledNote: |
+    The HighBond core resources (organizations, projects, control tests, risks,
+    controls, issues, frameworks, results collections, records) are drawn from
+    Diligent's public help and API-reference documentation, not from a published
+    OpenAPI definition. No OpenAPI/Postman artifacts were fabricated for this
+    entry.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://apis-us.highbond.com/v1
+      documented: true
+      note: >-
+        HighBond / Diligent One API. Region-scoped base URLs (apis-us, apis-ca,
+        apis-eu, apis-ap, apis-au, apis-af, apis-sa, apis-jp .highbond.com and
+        diligentoneplatform.com). Bearer token (HighBond API key).
+    - protocol: GraphQL
+      scheme: https
+      documented: true
+      note: >-
+        Diligent Entities API. Query/mutation over HTTPS; schema downloadable as
+        schema.graphql. No documented GraphQL subscriptions.
+    - protocol: REST
+      scheme: https
+      documented: true
+      note: Diligent ESG API - send activity/usage data. JSON over HTTPS, API-key gated.
+    - protocol: REST
+      scheme: https
+      documented: true
+      note: >-
+        Diligent Workflow API - Business Areas, Job Owners, Jobs, Tasks,
+        Campaigns, expiries. JSON over HTTPS.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented on any Diligent developer API as of the review date.
+sources:
+  - url: https://developer.diligent.com/
+    type: Documentation
+    note: Diligent Developer Portal - hub for HighBond, Entities, ESG, and Workflow APIs.
+  - url: https://developer.diligent.com/api/highbond
+    type: Documentation
+    note: HighBond (Diligent One) REST API documentation. Bearer-token (API key) auth.
+  - url: https://docs-apis.highbond.com/
+    type: APIReference
+    note: HighBond API reference; region-scoped base URLs, example https://apis-us.highbond.com/v1.
+  - url: https://developer.diligent.com/api/entities
+    type: Documentation
+    note: Entities GraphQL / Reports API. schema.graphql, root mutations, access token required.
+  - url: https://developer.diligent.com/docs/entities_graphql_api_guidelines
+    type: APIReference
+    note: Guidelines for consuming the Entities GraphQL API.
+  - url: https://developer.diligent.com/api/esg
+    type: Documentation
+    note: ESG API - send activity-entry (usage) data into Diligent ESG.
+  - url: https://developer.diligent.com/api/workflow
+    type: Documentation
+    note: Workflow API - REST/HTTPS/JSON; jobs, tasks, campaigns, business areas.
+  - url: https://developer.diligent.com/docs/api_terms_of_use
+    type: TermsOfService
+    note: API terms grant a limited, non-transferable right to integrate a Diligent Service into internal apps.
+  - url: https://www.okta.com/integrations/diligent-boardbooks/
+    type: Integration
+    note: Boardbooks integrates via SSO (SAML), not a public REST API.
+  - url: https://connect.diligent.com/s/article/SSO-and-SCIM-Provisioning-Changes-in-Diligent-One
+    type: Documentation
+    note: Diligent One supports SAML 2.0 SSO and SCIM provisioning; JIT provisioning removed.
+  - url: https://www.diligent.com/company/partners
+    type: Documentation
+    note: Partner program - API integrations gated behind partnership/customer relationship.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists on any Diligent developer API. The
+    documented APIs (HighBond/Diligent One REST, Entities GraphQL, ESG REST,
+    Workflow REST) are request/response over HTTPS, and the flagship board
+    portal has no public developer API at all (identity/provisioning + vendor
+    connectors only). No AsyncAPI document was created and no API artifacts were
+    fabricated.
