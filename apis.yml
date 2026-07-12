@@ -117,6 +117,12 @@ apis:
     Jobs, Tasks, Campaigns, and expiries, plus creating and updating jobs with
     files and folders.
 common:
+- type: TrustCenter
+  url: security/diligent-boards-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/diligent-boards-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/diligent-boards-domain-security.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/diligent
 - type: Website
