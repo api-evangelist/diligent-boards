@@ -39,7 +39,7 @@ tags:
 - Enterprise
 created: '2026-07-05'
 modified: '2026-07-05'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: diligent-boards:diligent-highbond-api
   name: Diligent HighBond API (Diligent One)
