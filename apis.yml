@@ -111,6 +111,11 @@ apis:
 - aid: diligent-boards:diligent-workflow-api
   name: Diligent Workflow API
   tags:
+  - Workflows
+  - Job
+  - Task
+  - Campaigns
+  tags_raw:
   - Workflow
   - Jobs
   - Tasks
