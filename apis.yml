@@ -15,6 +15,17 @@ description: Diligent Corporation is a governance, risk, and compliance (GRC)
   API for activity/usage data, and a Workflow API for jobs, tasks, and campaigns.
   API access is customer/partner-gated (a HighBond API key or SSO-scoped token is
   required) and pricing is quote-based via Diligent sales.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: unknown
