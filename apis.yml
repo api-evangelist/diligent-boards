@@ -40,6 +40,16 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/diligent-boards.png
 tags:
 - Governance
+- Risk Management
+- Compliance
+- GRC
+- Board Management
+- Audit
+- Entity Management
+- ESG
+- Enterprise
+tags_raw:
+- Governance
 - Risk
 - Compliance
 - GRC
@@ -55,6 +65,12 @@ apis:
 - aid: diligent-boards:diligent-highbond-api
   name: Diligent HighBond API (Diligent One)
   tags:
+  - GRC
+  - Audit
+  - Risk Management
+  - Compliance
+  - HighBond
+  tags_raw:
   - GRC
   - Audit
   - Risk
