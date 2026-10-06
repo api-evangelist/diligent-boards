@@ -59,7 +59,7 @@ tags_raw:
 - ESG
 - Enterprise
 created: '2026-07-05'
-modified: '2026-07-05'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis:
 - aid: diligent-boards:diligent-highbond-api
@@ -160,6 +160,8 @@ apis:
     Jobs, Tasks, Campaigns, and expiries, plus creating and updating jobs with
     files and folders.
 common:
+- url: https://www.diligent.com/resources/blog
+  type: Blog
 - type: TrustCenter
   url: security/diligent-boards-trust-center.yml
 - type: VulnerabilityDisclosure
