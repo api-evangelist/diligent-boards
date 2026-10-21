@@ -15,3 +15,35 @@
   relationship: distribution-channel
   status: not-a-workflow
   arazzo: null
+- slug: diligent-boards-cdp-accredited-solutions-provider-programme
+  label: CDP (Accredited Solutions Provider programme)
+  partner_name: CDP (Accredited Solutions Provider programme)
+  category: CDP disclosure accredited solutions provider
+  type: register
+  channel: standard-directory
+  evidence: https://www.cdp.net/en/partners/diligent
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: CDP Accredited Solutions Providers (cdp.net/en/find-accredited-solutions-providers + partner pages)
+    standard: CDP disclosure (CDP Accredited Solutions Provider programme)
+    spec_file: null
+    role: cdp-accredited-solutions-provider
+    registered_name: Diligent
+    register_id: https://www.cdp.net/en/partners/diligent
+    partner_tier: gold
+    register_statement: A global gold software solutions provider
+    matched_domain: diligent.com
+    matched_by: domain
+    matched_via: contact-email domain on the ASP page (the page links no website)
+    certified_products:
+    - product: CDP Accredited Solutions Provider (software)
+      product_type: CDP ASP software
+      lapsed: false
+    signal_note: certified_products = one entry per accredited service type (software / consultancy / renewable
+      energy), never per product; partner_tier is the CDP accreditation level; verification ASPs are assessors and
+      are held
+    detected_by: sweep-carbon-accounting-sbti-pcaf.py
+    detected: '2026-10-21'
+  status: not-a-workflow
+  arazzo: null
