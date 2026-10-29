@@ -1,4 +1,4 @@
-# Diligent (diligent-boards)
+# Diligent
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,76 +64,91 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Diligent Corporation is a governance, risk, and compliance (GRC) software company best known for its board management portal - **Diligent Boards / Boardbooks** - and the broader **Diligent One Platform**, which unifies board management, enterprise risk, audit, compliance, entity management, and ESG.
+Diligent Corporation is a governance, risk, and compliance (GRC) software company best known for its board management portal (Diligent Boards / Boardbooks) and the broader Diligent One Platform, which unifies board management, enterprise risk, audit, compliance, entity management, and ESG. The board portal itself is a security-hardened product with no public developer API - it is integrated through SSO (SAML 2.0), SCIM provisioning, and packaged connectors (Okta, Microsoft 365/Teams, Zoom, DocuSign). Diligent does, however, publish a real developer portal at developer.diligent.com covering the GRC side of the platform - the HighBond (Diligent One) REST API for audit/risk/compliance data, a GraphQL Entities API for legal-entity and subsidiary management, an ESG API for activity/usage data, and a Workflow API for jobs, tasks, and campaigns. API access is customer/partner-gated (a HighBond API key or SSO-scoped token is required) and pricing is quote-based via Diligent sales.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/diligent-boards/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/diligent-boards/refs/heads/main/apis.yml)
+**Areas:** Governance · Risk Management · Compliance · GRC · Board Management · Audit · Entity Management · ESG · Enterprise
 
-## Access Model (read this first)
+## Diligent on APIs.io
 
-Diligent's API footprint is split, and it is important to be honest about it:
+Everything profiled for Diligent is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/diligent-boards/](https://apis.io/providers/diligent-boards/)** — or go straight to one of the APIs or properties below.
 
-- **The board portal itself (Diligent Boards / Boardbooks) has no public developer API.** It is a security-hardened product integrated only through **SSO (SAML 2.0)**, **SCIM provisioning**, and packaged connectors (Okta, Microsoft 365 / Teams, Zoom, DocuSign). There is no documented REST/GraphQL surface for meetings, board books, minutes, or director records.
-- **The GRC side of the platform does have a real developer portal** at [developer.diligent.com](https://developer.diligent.com/). This covers the HighBond (Diligent One) REST API, a GraphQL Entities API, an ESG API, and a Workflow API.
-- **All access is customer / partner-gated.** You need a HighBond API key (Bearer token, with read/write/admin scopes and an expiry) or an Entities Reports API access token. There is no open self-serve tier.
-- **Pricing is quote-based** - contact Diligent sales. There is no public pricing page or public rate-limit table, so no `plans/`, `rate-limits/`, or `finops/` artifacts were fabricated for this entry.
-- **Endpoints are modeled from public help/reference docs**, not from a published OpenAPI definition. No OpenAPI or Postman artifacts were invented.
+### APIs (4)
 
-## Tags
+- [Diligent HighBond API (Diligent One)](https://apis.io/apis/diligent-boards/diligent-highbond-api/) — REST API for the Diligent One Platform (formerly HighBond) covering the governance, risk, and compliance surface - organizations, projects, control tests,…
+- [Diligent Entities API](https://apis.io/apis/diligent-boards/diligent-entities-api/) — GraphQL API for Diligent Entities - managing company/legal-entity records, their structure, obligations, and legal characteristics, plus an Entities Reports…
+- [Diligent ESG API](https://apis.io/apis/diligent-boards/diligent-esg-api/) — Developer interface for the Diligent ESG platform, used to send activity-entry (usage) data into Diligent ESG from internal systems for sustainability and…
+- [Diligent Workflow API](https://apis.io/apis/diligent-boards/diligent-workflow-api/) — REST API built around standard HTTPS requests with JSON responses for the Diligent Workflow product. Reports across Business Areas, Job Owners, Jobs, Tasks,…
 
-- Governance
-- Risk
-- Compliance
-- GRC
-- Board Management
-- Audit
-- Entity Management
-- ESG
-- Enterprise
+### Published properties
 
-## Timestamps
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- **Created:** 2026-07-05
-- **Modified:** 2026-07-05
+#### Security (3)
 
-## APIs
+Authentication, trust centre, and vulnerability disclosure.
 
-### Diligent HighBond API (Diligent One)
+- [Diligent Boards Domain Security](https://apis.io/security/diligent-boards/diligent-boards-domain-security/)
+- [Diligent Boards Trust Center](https://apis.io/security/diligent-boards/diligent-boards-trust-center/)
+- [Diligent Boards Vulnerability Disclosure](https://apis.io/security/diligent-boards/diligent-boards-vulnerability-disclosure/)
 
-REST API for the Diligent One Platform (formerly HighBond) covering the governance, risk, and compliance surface - organizations, projects, control tests, risks, controls, issues, frameworks, results collections, and records. JSON over HTTPS, authenticated with a HighBond API key (Bearer token). Base URLs are region-scoped (`apis-us` / `apis-ca` / `apis-eu` / `apis-ap` / `apis-au` / `apis-af` / `apis-sa` / `apis-jp`.highbond.com, plus `diligentoneplatform.com`).
+## Where to find this API
 
-- **Human URL:** [https://developer.diligent.com/api/highbond](https://developer.diligent.com/api/highbond)
-- **Base URL:** `https://apis-us.highbond.com/v1`
-- **Reference:** [docs-apis.highbond.com](https://docs-apis.highbond.com/)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-### Diligent Entities API
-
-GraphQL API for Diligent Entities - managing company / legal-entity records, their structure, obligations, and legal characteristics, plus an Entities Reports API. Root-level mutations create, update, and delete entities. The full schema is downloadable as `schema.graphql`, and Diligent recommends generating a typed client (e.g. Strawberry Shake for .NET). Requires a Reports API access token.
-
-- **Human URL:** [https://developer.diligent.com/api/entities](https://developer.diligent.com/api/entities)
-- **Guidelines:** [Consuming the Entities GraphQL API](https://developer.diligent.com/docs/entities_graphql_api_guidelines)
-
-### Diligent ESG API
-
-Developer interface for the Diligent ESG platform, used to send activity-entry (usage) data into Diligent ESG from internal systems for sustainability and emissions reporting. REST over HTTPS with JSON, gated by a HighBond / Diligent One API key.
-
-- **Human URL:** [https://developer.diligent.com/api/esg](https://developer.diligent.com/api/esg)
-
-### Diligent Workflow API
-
-REST API built around standard HTTPS requests with JSON responses for the Diligent Workflow product. Reports across Business Areas, Job Owners, Jobs, Tasks, Campaigns, and expiries, plus creating and updating jobs with files and folders.
-
-- **Human URL:** [https://developer.diligent.com/api/workflow](https://developer.diligent.com/api/workflow)
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/diligent)
 - [Website](https://www.diligent.com/)
-- [Documentation (Developer Portal)](https://developer.diligent.com/)
-- [Partners](https://www.diligent.com/company/partners)
-- [API Terms of Use](https://developer.diligent.com/docs/api_terms_of_use)
-- [Board Management (product)](https://www.diligent.com/lp/more-than-a-board-portal)
+- [Documentation](https://developer.diligent.com/)
+- [Blog](https://www.diligent.com/resources/blog)
+- [Terms of service](https://developer.diligent.com/docs/api_terms_of_use)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 13.5** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 9.5 |
+| Access clarity | 18.4 |
+
+**Agent readiness 0.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 20.6** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/diligent-boards/](https://apis.io/providers/diligent-boards/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Diligent: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/diligent-boards/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
